@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Result</h1>
+    <p><strong>Text:</strong> {{ text }}</p>
+    <p><strong>Sentiment Scores:</strong></p>
+    <ul>
+        <li><strong>Positive:</strong> {{ sentiment_scores.pos }}</li>
+        <li><strong>Neutral:</strong> {{ sentiment_scores.neu }}</li>
+        <li><strong>Negative:</strong> {{ sentiment_scores.neg }}</li>
+        <li><strong>Compound:</strong> {{ sentiment_scores.compound }}</li>
+    </ul>
+    <a href="{% url 'index' %}">Analyze another text</a>
+    
+    {% if plot_url %}
+        <h2>Sentiment Scores Plot</h2>
+        <div>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Sentiment Scores Plot">
+        </div>
+    {% endif %}
+</body>
+</html>
